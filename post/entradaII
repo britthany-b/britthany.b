@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britthany B | Libros & Romance</title>
+    <style>
+        :root {
+            --bg-color: #FFF0F3;
+            --card-bg: #FFFDF9;
+            --text-main: #3D2314;
+            --text-sub: #7A5853;
+            --gold-accent: #D4AF37;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        h1.site-title {
+            font-size: 3.2rem;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold-accent);
+            margin: 15px auto;
+        }
+
+        p.subtitle {
+            font-style: italic;
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* REPRODUCTOR DE MÚSICA TIPO VINILO */
+        .music-player-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            padding: 8px 25px;
+            max-width: 380px;
+            margin: 25px auto 0;
+            box-shadow: 0 4px 12px rgba(61, 35, 20, 0.04);
+        }
+
+        .vinyl-record {
+            width: 45px;
+            height: 45px;
+            background: radial-gradient(circle, #3D2314 25%, #111 26%, #222 50%, #111 70%, #333 100%);
+            border-radius: 50%;
+            border: 2px solid var(--gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            animation: spin 3s linear infinite;
+            animation-play-state: paused; /* Se activa al darle reproducir */
+        }
+
+        .vinyl-record::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold-accent);
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .music-info {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-style: italic;
+        }
+
+        .play-btn {
+            background: transparent;
+            border: 1px solid var(--gold-accent);
+            color: var(--text-main);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .play-btn:hover {
+            background-color: var(--gold-accent);
+            color: white;
+        }
+
+        main {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .post-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(61, 35, 20, 0.03);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+        }
+
+        .post-category {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .post-title {
+            font-size: 2.2rem;
+            margin: 10px 0 15px;
+            font-weight: normal;
+        }
+
+        .post-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            margin: 15px 0 25px;
+        }
+
+        .book-details {
+            background-color: rgba(212, 175, 55, 0.08);
+            border-left: 3px solid var(--gold-accent);
+            padding: 12px 18px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .book-details p {
+            margin: 2px 0;
+        }
+
+        .post-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 2px solid var(--gold-accent);
+            margin: 25px 0;
+            padding-left: 18px;
+            color: var(--text-sub);
+            font-size: 1.15rem;
+        }
+
+        .post-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+            text-align: right;
+            font-style: italic;
+            color: var(--text-sub);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="site-title">Britthany B</h1>
+        <div class="gold-divider"></div>
+        <p class="subtitle">Reseñas literarias, pensamientos y romance</p>
+
+        <!-- REPRODUCTOR DE MÚSICA VINILO -->
+        <div class="music-player-container">
+            <div class="vinyl-record" id="vinyl"></div>
+            <div class="music-info">
+                <span id="song-title">🎵 Reproducir música ambiental</span>
+            </div>
+            <button class="play-btn" onclick="toggleAudio()" id="playBtn">▶</button>
+            
+            <!-- https://youtu.be/g5SMCtGBQFA?t=846-->
+            <audio id="bg-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        </div>
+    </header>
+
+    <main>
+        <!-- ====================================================
+             PLANTILLA BASE PARA TUS ENTRADAS / POSTS
+             ==================================================== -->
+        <article class="post-card">
+            
+            <div class="post-header">
+                <!-- DIARIO-->
+                <span class="post-category">Solo B.</span>
+                <!-- FECHA DE PUBLICACIÓN -->
+                <span class="post-date">8 de Octubre, 2026</span>
+            </div>
+
+            <!-- TÍTULO DE LA ENTRADA -->
+            <h2 class="post-title">Hola, Queridos Lectores.</h2>
+            
+            <!-- URL DE LA IMAGEN DE PORTADA -->
+            <img src="https://stock.adobe.com/search?k=soft+pink+flowers" alt="Portada" class="post-image">
+
+        
+            <!-- CONTENIDO DE TU ENTRADA -->
+            <div class="post-content">
+                <p>He vuelto, he vuelto a escribir despues de un largo tiempo...</p>
+                
+                <p>Si soy franca, les diré, en ningún momento he dejado de parlotear, las personas como yo -supuestamente calladas- en realidad nunca dejamos de dar discursos, por insignificantes que sean. Cuando no hablamos, escribimos, y cuando no escribimos: hablamos. Es tan sencillo, solo almas que no pueden estar en silencio ni un segundo. Durante mi ausencia de los blogs y mi escasa huella en el medio digital, estuve haciendo cosas que podrían llamarse interesantes y enriquecedoras, entre las cuales están escribir de mi puño y letra en un diario, leer, escribir alguna cancioncilla de mala muerte y, la menos divertida, trabajar.En estos últimos meses la vida ha dado giros inesperados, pero como siempre, lo peor se va y lo mejor se queda. Aunque nunca ha habido tal calamidad en mi vida —gracias a Dios—, por otro lado, algunos recordarán mi antiguo e innombrable proyecto. Sí, me refiero a mi viejo website "[...] diaries in the city". Era un proyecto totalmente repudiable y lleno de fanfarronería, porque al leer el título pensarás que es el blog de una it girl de metrópolis y te topas con la persona menos sociable de un pueblo de quinto patio. Ese nivel de aspiracionismo me cansa y por eso lo dejé; puedo fingir unos días, pero no todo el tiempo. Además, en ese momento, a pesar de disponer del tiempo, carecía de varias cosas que hacen que uno realmente tenga una voz como "escritora". Este último entre comillas porque no me considero escritora de nada, simplemente hago esto por amor al arte y porque puedo.En este momento aún me veo afectada por esas carencias, siento cómo mi vocabulario es tan pero tan pobre y repito las mismas palabras; ¡es por eso que he empezado a leer más! Y buena literatura.En realidad nunca he leído un libro que me parezca malo e insulso, pero sé que los hay, tan vacíos y carentes de dirección. Ah, espera, sí tengo unos en mi biblioteca —por supuesto que están ahí contra mi voluntad—: son esos típicos libros de autoayuda que te venden esos gurús del éxito que están cada vez más presentes en nuestra generación. He tenido la oportunidad de conversar con algunos de ellos y son bastante estúpidos, aunque no dejan de ser seres humanos.Sin desviarme del tema central de este breve texto, la idea de este blog es mantenerlo impoluto, directo, genuino... sin hacerlo ramera como el ya mencionado anteriormente. Espero que les haya gustado el diseño. Es bastante sobrio y femenino... ¡y si no les gusta, espero que la crítica venga acompañada de un mejor código para mejorarlo! Ja, ja, ja. Gracias por leer hasta aquí, a continuación, una pequeña cita de "Pobre Gente" de Fiodor D.></p>
+
+                <!-- CITAS O FRASES DESTACADAS (OPCIONAL) -->
+                <blockquote>
+                    «El hombre es a veces una cosa rara, pero que muy rara. ¡Oh Dios santo! ¿Qué es lo que a veces no se propasa uno a decir? Pero ¿y las consecuencias, las consecuencias últimas? Si, pese a lo que luego ocurrir pueda, por lo pronto suelta uno tales desatinos, ¡que Dios nos libre y nos guarde! Sí, hija mía, yo no me enfado en modo alguno; pero me resulta, sin embargo, muy desagradable reflexionar ahora en todas esas cosas que con tanta despreocupación y tan poco juicio le escribí a usted… Y hasta la oficina he ido hoy lleno de arrogancia y presunción; fulgían tales luces en mis ojos, llevaba tal fiesta en el alma, y todo esto sin el menor motivo… ¡Me sentía tan feliz! Ansioso de desplegar actividad, me puse al trabajo entre mis papeles…; ¿y en qué paró al fin todo ello? Pues en que, al tender luego la vista en torno mío, todo volví a encontrarlo como antes…, gris e insípido. Por todas partes las mismas manchas de tinta, las mismas mesas y los mismos papeles, e incluso yo mismo me había quedado como era antes, exactamente igual… ¿Qué motivo había habido, pues, para cabalgar en el Pegaso? ¿Y de dónde procedía todo aquello? Sencillamente de que el sol había sonreído por entre las nubes, y el cielo teñíase de un color más claro. ¿Acaso se debía todo sólo a eso? Y ¿qué tienen que ver los aromas primaverales cuando mira uno a un patio en el que se puede encontrar toda la basura del mundo? Verdaderamente, todas esas cosas me las he debido yo de imaginar de puro estúpido.»
+                </blockquote>
+
+                <p>Me encantaría que piensen en esa cita y me envíen un correo electrónico con un comentario al respecto.</p>
+            </div>
+
+            <!-- FIRMA FINAL -->
+            <div class="post-footer">
+                <span>Sin nada más que agregar, B.</span>
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; Britthany B. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT PARA HACER GIRAR EL DISCO Y REPRODUCIR MÚSICA -->
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const vinyl = document.getElementById('vinyl');
+        const playBtn = document.getElementById('playBtn');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                vinyl.style.animationPlayState = 'running';
+                playBtn.textContent = '❚❚';
+            } else {
+                audio.pause();
+                vinyl.style.animationPlayState = 'paused';
+                playBtn.textContent = '▶';
+            }
+        }
+    </script>
+</body>
+</html>
