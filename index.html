@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Britthany | Gatos, café y diarios </title>
+    <title> Britthany | Gatos, libros y lápiz </title>
     <!-- Script necesario para Decap CMS Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
@@ -97,11 +97,22 @@
     <main>
         <article class="post-card">
             <span class="post-date">7 de Octubre, 2026</span>
-            <h2 class="post-title">Bienvenid@s a mi pequeño blog</h2>
-            <p>Este es el espacio donde compartiré mis pensamientos e historias.</p>
+            <h2 class="post-title">¡Bienvenid@s!</h2>
+            <p>Sitio web oficial de una completa desconocida.</p>
         </article>
     </main>
-
+    
+<section class="seccion-periodico">
+  <h2>Últimas Publicaciones</h2>
+  
+  <div id="contenedor-entradas" class="grid-periodico"></div>
+  
+  <!-- Botón para cargar más -->
+  <div class="boton-contenedor">
+    <button id="btn-cargar-mas" onclick="cargarMasEntradas()">Cargar más entradas</button>
+  </div>
+</section>
+    
     <footer>
         <p>&copy; Britthany B. Todos los derechos reservados.</p>
     </footer>
@@ -117,5 +128,17 @@
         });
       }
     </script>
+<section class="seccion-periodico">
+  <h2>Últimas Publicaciones</h2>
+  
+  <!-- Aquí aparecerán las entradas -->
+  <div id="contenedor-entradas" class="grid-periodico"></div>
+  
+  <!-- Botón para cargar más -->
+  <div class="boton-contenedor">
+    <button id="btn-cargar-mas" onclick="cargarMasEntradas()">Cargar más entradas</button>
+  </div>
+</section>
+    
 </body>
 </html>
