@@ -1,0 +1,23 @@
+[
+  {
+    "titulo": "Mi primera entrada del blog",
+    "fecha": "8 de Octubre, 2026",
+    "resumen": "Reflexiones sobre rutinas, café y los momentos tranquilos del día.",
+    "url": "entradas/entrada-1.html",
+    "imagen": "entradas/imagen1.jpg"
+  },
+  {
+    "titulo": "Un día entre libros y gatos",
+    "fecha": "7 de Octubre, 2026",
+    "resumen": "Una mirada a cómo me acompañan mis mascotas mientras escribo.",
+    "url": "entradas/entrada-2.html",
+    "imagen": "entradas/imagen2.jpg"
+  },
+  {
+    "titulo": "Notas en el diario al atardecer",
+    "fecha": "6 de Octubre, 2026",
+    "resumen": "Pensamientos guardados en la libreta al final de la jornada.",
+    "url": "entradas/entrada-3.html",
+    "imagen": "entradas/imagen3.jpg"
+  }
+]
