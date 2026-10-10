@@ -1,9 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
   repo: britthany-b/britthany.b
   branch: main
-  base_url: https://decap-cms-oauth-provider.netlify.app
-  auth_endpoint: auth
+  auth_type: pkce
 media_folder: "entradas/imagenes"
 public_folder: "/entradas/imagenes"
 
