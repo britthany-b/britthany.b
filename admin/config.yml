@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: britthany-b/britthany.b
   branch: main
   base_url: https://decap-cms-oauth-provider.netlify.app
