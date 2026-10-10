@@ -2,7 +2,8 @@ backend:
   name: github
   repo: britthany-b/britthany.b
   branch: main
-
+  base_url: https://decap-cms-oauth-provider.netlify.app
+  auth_endpoint: auth
 media_folder: "entradas/imagenes"
 public_folder: "/entradas/imagenes"
 
