@@ -180,48 +180,30 @@
         </section>
 
         <!-- SECCIÓN DE MÚSICA -->
-       <!-- MUSIC SECTION -->
+      <!-- MUSIC SECTION -->
 <section id="music" class="space-y-6">
     <div class="flex items-center justify-between border-b border-deepPink/30 pb-3">
         <h2 class="text-3xl font-bold text-warmBrown flex items-center gap-3">
             <i class="fa-solid fa-compact-disc text-deepPink text-2xl"></i>
             <span>Sintonía & Playlist</span>
         </h2>
-        <span class="text-sm text-lightBrown italic" id="music-status">Playlist desde Notion 🎶</span>
+        <span class="text-sm text-lightBrown italic">🎶</span>
     </div>
 
-    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md space-y-6">
-        <!-- Reproductor Interactivo -->
-        <div class="bg-cream/90 rounded-2xl p-6 border border-deepPink/30 shadow-inner flex flex-col sm:flex-row items-center gap-6">
-            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-softPink to-deepPink flex items-center justify-center shadow-md relative overflow-hidden group">
-                <i class="fa-solid fa-music text-4xl text-warmBrown/80 group-hover:scale-110 transition duration-300"></i>
-            </div>
-            
-            <div class="flex-grow w-full space-y-3 text-center sm:text-left">
-                <div>
-                    <span id="player-status" class="text-xs font-bold uppercase tracking-wider text-deepPink">Sintonizando</span>
-                    <h3 id="current-title" class="text-2xl font-bold text-warmBrown">Selecciona una canción</h3>
-                    <p id="current-artist" class="text-sm text-lightBrown italic">Playlist de Notion</p>
-                </div>
-
-                <div class="space-y-1">
-                    <input type="range" id="seek-bar" value="0" max="100" class="w-full accent-deepPink h-1.5 bg-softPink rounded-lg cursor-pointer">
-                    <div class="flex justify-between text-xs text-lightBrown font-semibold">
-                        <span id="current-time">0:00</span>
-                        <span id="total-duration">0:00</span>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-center sm:justify-start gap-4 pt-1">
-                    <button onclick="togglePlay()" id="play-btn" class="w-12 h-12 rounded-full bg-warmBrown text-cream flex items-center justify-center hover:bg-lightBrown transition shadow-sm focus:outline-none">
-                        <i class="fa-solid fa-play text-lg" id="play-icon"></i>
-                    </button>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-volume-high text-xs text-lightBrown"></i>
-                        <input type="range" id="volume-bar" value="80" max="100" class="w-20 accent-warmBrown h-1 bg-softPink rounded-lg cursor-pointer">
-                    </div>
-                </div>
-            </div>
+    <div class="glass-card rounded-3xl p-4 sm:p-6 shadow-md overflow-hidden">
+       
+        <div class="rounded-2xl overflow-hidden border border-deepPink/30 bg-cream/50 shadow-inner">
+            <iframe 
+                src="https://gilded-approval-f27.notion.site/ebd//3f55acb16f748048ab66efc307633d2b" 
+                width="100%" 
+                height="450" 
+                frameborder="0" 
+                allowfullscreen
+                class="w-full rounded-2xl">
+            </iframe>
+        </div>
+    </div>
+</section>
         </div>
 
         <!-- Lista Dinámica de Música -->
