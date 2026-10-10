@@ -1,17 +1,20 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: britthany-b/britthany.b
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "entradas/imagenes"
+public_folder: "/entradas/imagenes"
 
 collections:
   - name: "blog"
     label: "Entradas del Blog"
-    folder: "posts"
+    folder: "entradas"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Fecha", name: "date", widget: "datetime"}
-      - {label: "Contenido", name: "body", widget: "markdown"}
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Imagen de Portada", name: "image", widget: "image", required: false }
+      - { label: "Resumen corto", name: "description", widget: "text" }
+      - { label: "Contenido de la entrada", name: "body", widget: "markdown" }
