@@ -180,97 +180,190 @@
         </section>
 
         <!-- SECCIÓN DE MÚSICA -->
-        <section id="musica" class="py-12 px-4 max-w-4xl mx-auto">
-            <div class="glass-card p-6 md:p-8 rounded-3xl shadow-sm">
-                <div class="text-center mb-8">
-                    <div class="inline-block p-3 bg-softPink rounded-full mb-3 text-warmBrown">
-                        <i id="music-vinyl-icon" class="fa-solid fa-compact-disc text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-warmBrown italic mb-1">Música que he escuchado esta semana</h2>
-                    <p class="text-warmBrown/80">Top canciones de la semana</p>
+       <!-- MUSIC SECTION -->
+<section id="music" class="space-y-6">
+    <div class="flex items-center justify-between border-b border-deepPink/30 pb-3">
+        <h2 class="text-3xl font-bold text-warmBrown flex items-center gap-3">
+            <i class="fa-solid fa-compact-disc text-deepPink text-2xl"></i>
+            <span>Sintonía & Playlist</span>
+        </h2>
+        <span class="text-sm text-lightBrown italic" id="music-status">Playlist desde Notion 🎶</span>
+    </div>
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md space-y-6">
+        <!-- Reproductor Interactivo -->
+        <div class="bg-cream/90 rounded-2xl p-6 border border-deepPink/30 shadow-inner flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-softPink to-deepPink flex items-center justify-center shadow-md relative overflow-hidden group">
+                <i class="fa-solid fa-music text-4xl text-warmBrown/80 group-hover:scale-110 transition duration-300"></i>
+            </div>
+            
+            <div class="flex-grow w-full space-y-3 text-center sm:text-left">
+                <div>
+                    <span id="player-status" class="text-xs font-bold uppercase tracking-wider text-deepPink">Sintonizando</span>
+                    <h3 id="current-title" class="text-2xl font-bold text-warmBrown">Selecciona una canción</h3>
+                    <p id="current-artist" class="text-sm text-lightBrown italic">Playlist de Notion</p>
                 </div>
 
-                <!-- Real Interactive Audio Player Controls -->
-                <div class="bg-cream/90 p-6 rounded-2xl border border-softPink shadow-sm mb-6 text-center">
-                    <p id="player-status-text" class="text-xs uppercase tracking-wider font-bold text-lightBrown mb-1">Reproduciendo:</p>
-                    <h3 id="current-song-title" class="text-xl font-bold text-warmBrown">Selecciona una canción</h3>
-                    <p id="current-song-artist" class="text-sm italic text-warmBrown/70 mb-4">Música relajante</p>
-
-                    <!-- Hidden HTML5 Audio Element -->
-                    <audio id="main-audio-player" src=""></audio>
-
-                    <!-- Player Controls -->
-                    <div class="flex items-center justify-center space-x-6 my-2">
-                        <button onclick="prevSong()" class="text-warmBrown hover:text-lightBrown text-xl focus:outline-none transition">
-                            <i class="fa-solid fa-backward-step"></i>
-                        </button>
-                        <button id="master-play-btn" onclick="togglePlay()" class="w-12 h-12 rounded-full bg-warmBrown text-cream hover:bg-lightBrown flex items-center justify-center transition focus:outline-none shadow-md">
-                            <i class="fa-solid fa-play text-lg"></i>
-                        </button>
-                        <button onclick="nextSong()" class="text-warmBrown hover:text-lightBrown text-xl focus:outline-none transition">
-                            <i class="fa-solid fa-forward-step"></i>
-                        </button>
-                    </div>
-
-                    <!-- Progress Bar -->
-                    <div class="flex items-center space-x-3 mt-4 text-xs font-bold text-warmBrown/70">
-                        <span id="time-current">0:00</span>
-                        <input id="audio-seek" type="range" value="0" max="100" class="w-full h-1.5 bg-softPink rounded-lg appearance-none cursor-pointer accent-warmBrown" onchange="seekAudio(this.value)">
-                        <span id="time-duration">0:00</span>
+                <div class="space-y-1">
+                    <input type="range" id="seek-bar" value="0" max="100" class="w-full accent-deepPink h-1.5 bg-softPink rounded-lg cursor-pointer">
+                    <div class="flex justify-between text-xs text-lightBrown font-semibold">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">0:00</span>
                     </div>
                 </div>
 
-                <!-- Playlist Items -->
-                <div class="space-y-3" id="playlist">
-                    <!-- Track 1 -->
-                    <div onclick="selectSong(0)" class="playlist-item cursor-pointer bg-cream/70 hover:bg-softPink/40 p-4 rounded-xl border border-softPink/60 flex items-center justify-between transition">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-softPink text-warmBrown flex items-center justify-center font-bold text-sm">1</div>
-                            <div>
-                                <h4 class="font-bold text-base text-warmBrown">Lofi Cat Dreams</h4>
-                                <p class="text-xs text-warmBrown/70 italic">Soft Chill Beats</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-circle-play text-warmBrown/60 text-lg"></i>
-                    </div>
-
-                    <!-- Track 2 -->
-                    <div onclick="selectSong(1)" class="playlist-item cursor-pointer bg-cream/70 hover:bg-softPink/40 p-4 rounded-xl border border-softPink/60 flex items-center justify-between transition">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-softPink text-warmBrown flex items-center justify-center font-bold text-sm">2</div>
-                            <div>
-                                <h4 class="font-bold text-base text-warmBrown">Acoustic Afternoon</h4>
-                                <p class="text-xs text-warmBrown/70 italic">Warm Guitar Solo</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-circle-play text-warmBrown/60 text-lg"></i>
-                    </div>
-
-                    <!-- Track 3 -->
-                    <div onclick="selectSong(2)" class="playlist-item cursor-pointer bg-cream/70 hover:bg-softPink/40 p-4 rounded-xl border border-softPink/60 flex items-center justify-between transition">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-softPink text-warmBrown flex items-center justify-center font-bold text-sm">3</div>
-                            <div>
-                                <h4 class="font-bold text-base text-warmBrown">Peaceful Piano Tea</h4>
-                                <p class="text-xs text-warmBrown/70 italic">Calm Evening Melodies</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-circle-play text-warmBrown/60 text-lg"></i>
+                <div class="flex items-center justify-center sm:justify-start gap-4 pt-1">
+                    <button onclick="togglePlay()" id="play-btn" class="w-12 h-12 rounded-full bg-warmBrown text-cream flex items-center justify-center hover:bg-lightBrown transition shadow-sm focus:outline-none">
+                        <i class="fa-solid fa-play text-lg" id="play-icon"></i>
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-volume-high text-xs text-lightBrown"></i>
+                        <input type="range" id="volume-bar" value="80" max="100" class="w-20 accent-warmBrown h-1 bg-softPink rounded-lg cursor-pointer">
                     </div>
                 </div>
-<!-- Modal for Blog Entries -->
-    <div id="article-modal" class="fixed inset-0 bg-warmBrown/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card bg-cream max-w-lg w-full p-6 md:p-8 rounded-3xl shadow-xl relative border border-softPink">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-warmBrown hover:text-deepPink text-2xl font-bold">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 id="modal-title" class="text-2xl font-bold mb-4 text-warmBrown italic"></h3>
-            <p id="modal-body" class="text-warmBrown/90 mb-6 leading-relaxed text-base"></p>
-            <button onclick="closeModal()" class="w-full bg-warmBrown text-cream py-3 rounded-full font-bold hover:bg-lightBrown transition">
-                Cerrar
-            </button>
+            </div>
+        </div>
+
+        <!-- Lista Dinámica de Música -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-warmBrown border-b border-softPink pb-1">Lista de reproducción</h4>
+            <div class="space-y-2" id="playlist-container">
+                <!-- Se llena automáticamente con las canciones de tu Notion -->
+            </div>
         </div>
     </div>
+</section>
+
+<!-- Audio Element oculto -->
+<audio id="audio-player"></audio>
+
+<script>
+    const NOTION_MUSIC_URL = "https://notion-api.splitbee.io/v1/table/3f55acb16f7480268299e4e03f2c1efd";
+
+    async function fetchNotionMusic() {
+        const container = document.getElementById('playlist-container');
+        const statusIndicator = document.getElementById('music-status');
+
+        try {
+            const response = await fetch(NOTION_MUSIC_URL);
+            if (!response.ok) throw new Error("Error leyendo Notion Música");
+            const data = await response.json();
+
+            if (data && data.length > 0) {
+                renderPlaylist(data);
+                statusIndicator.innerText = "Playlist conectada a Notion 🎶";
+            } else {
+                renderEmptyMusicState();
+            }
+        } catch (error) {
+            renderEmptyMusicState();
+        }
+    }
+
+    function renderPlaylist(songs) {
+        const container = document.getElementById('playlist-container');
+        container.innerHTML = songs.map((song, index) => {
+            const title = song.Cancion || song.Canción || song.Name || 'Canción sin título';
+            const artist = song.Artista || 'Artista';
+            const audioUrl = song.AudioURL || song.LinkMP3 || song.Link || '';
+            
+            return `
+                <div class="bg-cream/60 hover:bg-cream p-3 rounded-xl border border-softPink/50 flex items-center justify-between transition cursor-pointer" 
+                     onclick="loadSong('${escapeHtml(title)}', '${escapeHtml(artist)}', '${escapeHtml(audioUrl)}')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-softPink text-warmBrown flex items-center justify-center text-xs font-bold">${index + 1}</div>
+                        <div>
+                            <h5 class="font-bold text-warmBrown text-base">${title}</h5>
+                            <p class="text-xs text-lightBrown italic">${artist}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-play text-xs text-lightBrown"></i>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderEmptyMusicState() {
+        const container = document.getElementById('playlist-container');
+        container.innerHTML = `
+            <div class="p-4 text-center text-sm text-lightBrown italic bg-cream/40 rounded-xl">
+                Agrega canciones a tu tabla de Notion "Música" para escucharlas aquí 🎧
+            </div>
+        `;
+    }
+
+    function escapeHtml(text) {
+        return (text || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    const audio = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-btn');
+    const playIcon = document.getElementById('play-icon');
+    const currentTitle = document.getElementById('current-title');
+    const currentArtist = document.getElementById('current-artist');
+    const seekBar = document.getElementById('seek-bar');
+    const volumeBar = document.getElementById('volume-bar');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalDurationEl = document.getElementById('total-duration');
+    let isPlaying = false;
+
+    function loadSong(title, artist, src) {
+        currentTitle.innerText = title;
+        currentArtist.innerText = artist;
+        if (src) {
+            audio.src = src;
+            audio.play();
+            isPlaying = true;
+            updatePlayIcon();
+        } else {
+            alert("Por favor añade el enlace del archivo de audio (.mp3) en la columna de Notion.");
+        }
+    }
+
+    function togglePlay() {
+        if (!audio.src) return;
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            audio.play();
+        }
+        isPlaying = !isPlaying;
+        updatePlayIcon();
+    }
+
+    function updatePlayIcon() {
+        playIcon.className = isPlaying ? "fa-solid fa-pause text-lg" : "fa-solid fa-play text-lg";
+    }
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            seekBar.value = progress;
+            currentTimeEl.innerText = formatTime(audio.currentTime);
+            totalDurationEl.innerText = formatTime(audio.duration);
+        }
+    });
+
+    seekBar.addEventListener('input', () => {
+        if (audio.duration) {
+            audio.currentTime = (seekBar.value / 100) * audio.duration;
+        }
+    });
+
+    volumeBar.addEventListener('input', () => {
+        audio.volume = volumeBar.value / 100;
+    });
+
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    // Inicializar música
+    fetchNotionMusic();
+</script> 
+        <div></div>
 
     <!-- Footer -->
     <footer class="py-8 text-center text-sm text-warmBrown/80 border-t border-softPink/50 bg-cream/40 mt-12">
