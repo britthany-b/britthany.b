@@ -2,7 +2,7 @@ backend:
   name: github
   repo: britthany-b/britthany.b
   branch: main
-  auth_type: pkce
+  auth_type: token
 media_folder: "entradas/imagenes"
 public_folder: "/entradas/imagenes"
 
